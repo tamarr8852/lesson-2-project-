@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="שיעור 2 - מסע למידה קצר וממוקד">
+    <title>שיעור 2 | מסע הלמידה שלי</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap');
+
+        :root {
+            --ink: #172b4d;
+            --muted: #61708a;
+            --cream: #fffaf2;
+            --paper: #ffffff;
+            --coral: #ee765f;
+            --coral-dark: #d95e4c;
+            --sun: #f7c85c;
+            --mint: #cfe8dc;
+            --line: #e8e4db;
+            --shadow: 0 18px 45px rgba(36, 47, 77, 0.11);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--cream);
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            font-size: 18px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0 0 auto;
+            height: 8px;
+            background: var(--coral);
+            z-index: 2;
+        }
+
+        .page { max-width: 1180px; margin: auto; padding: 34px 28px 60px; }
+        nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 72px; }
+        .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.15rem; }
+        .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; color: var(--ink); background: var(--sun); font-weight: 800; }
+        .lesson-tag { color: var(--muted); font-size: .95rem; }
+
+        .hero { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 64px; margin-bottom: 72px; }
+        .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--coral-dark); font-weight: 700; margin: 0 0 18px; }
+        .eyebrow::before { content: ''; width: 30px; height: 3px; background: var(--coral); border-radius: 4px; }
+        h1 { max-width: 650px; margin: 0 0 20px; font-family: 'Heebo', sans-serif; font-size: clamp(2.6rem, 6vw, 5.4rem); line-height: .98; letter-spacing: -1px; }
+        .hero-copy { max-width: 540px; margin: 0 0 30px; color: var(--muted); line-height: 1.7; font-size: 1.15rem; }
+        .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+        .primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border: 0; border-radius: 10px; color: #fff; background: var(--coral); box-shadow: 0 8px 18px rgba(238, 118, 95, .25); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; transition: transform .2s, background .2s; }
+        .primary:hover { transform: translateY(-3px); background: var(--coral-dark); }
+        .duration { color: var(--muted); font-size: .95rem; }
+
+        .illustration { position: relative; min-height: 330px; }
+        .illustration::before { content: ''; position: absolute; inset: 16px 0 0 20px; border-radius: 42% 58% 48% 52% / 54% 40% 60% 46%; background: var(--mint); transform: rotate(-7deg); }
+        .sun { position: absolute; top: 0; left: 4%; width: 92px; height: 92px; border-radius: 50%; background: var(--sun); }
+        .notebook { position: absolute; left: 13%; bottom: 28px; width: 72%; min-height: 220px; padding: 34px 30px; border: 1px solid rgba(23, 43, 77, .07); border-radius: 10px; background: var(--paper); box-shadow: var(--shadow); transform: rotate(4deg); }
+        .notebook::after { content: ''; position: absolute; top: 0; right: 26px; width: 5px; height: 100%; background: var(--coral); opacity: .75; }
+        .notebook-label { color: var(--coral-dark); font-weight: 700; }
+        .notebook h2 { margin: 12px 0 20px; font-family: 'Heebo', sans-serif; font-size: 2rem; }
+        .scribble { height: 8px; margin: 12px 0; border-radius: 10px; background: #e9edf0; }
+        .scribble.short { width: 58%; }
+
+        .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+        .section-heading h2 { margin: 0; font-family: 'Heebo', sans-serif; font-size: 1.8rem; }
+        .section-heading p { margin: 0; color: var(--muted); }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .card { min-height: 190px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); transition: transform .2s, box-shadow .2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .card-number { display: grid; place-items: center; width: 38px; height: 38px; margin-bottom: 20px; border-radius: 50%; background: var(--sun); font-weight: 800; }
+        .card:nth-child(2) .card-number { background: var(--mint); }
+        .card:nth-child(3) .card-number { color: #fff; background: var(--coral); }
+        .card h3 { margin: 0 0 7px; font-family: 'Heebo', sans-serif; font-size: 1.3rem; }
+        .card p { margin: 0; color: var(--muted); line-height: 1.55; }
+        .greeting { position: relative; overflow: hidden; margin-top: 72px; padding: 38px 42px; border-radius: 14px; color: var(--ink); background: var(--mint); box-shadow: var(--shadow); }
+        .greeting::after { content: '✦'; position: absolute; left: 34px; top: 18px; color: var(--coral); font-size: 4rem; opacity: .55; }
+        .greeting h2 { position: relative; z-index: 1; margin: 0 0 18px; font-family: 'Heebo', sans-serif; font-size: 2rem; }
+        .greeting p { position: relative; z-index: 1; max-width: 760px; margin: 8px 0; line-height: 1.75; }
+        .greeting .signature { margin-top: 22px; color: var(--coral-dark); font-weight: 700; }
+
+        @media (max-width: 760px) {
+            .page { padding: 28px 20px 46px; }
+            nav { margin-bottom: 48px; }
+            .hero { grid-template-columns: 1fr; gap: 28px; margin-bottom: 52px; }
+            .illustration { min-height: 260px; }
+            .notebook { left: 10%; width: 82%; min-height: 180px; padding: 25px; }
+            .notebook h2 { font-size: 1.6rem; }
+            .cards { grid-template-columns: 1fr; }
+            .section-heading { display: block; }
+            .section-heading p { margin-top: 5px; }
+            .greeting { margin-top: 52px; padding: 28px 24px; }
+            .greeting h2 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav aria-label="ניווט ראשי">
+            <div class="brand"><span class="brand-mark">ר</span><span>מחברת הלמידה</span></div>
+            <span class="lesson-tag">פרק 02 מתוך 06</span>
+        </nav>
+
+        <section class="hero" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">שיעור 2 · ממשיכים קדימה</p>
+                <h1 id="page-title">רעיונות גדולים מתחילים בצעד קטן.</h1>
+                <p class="hero-copy">זמן לעצור, להתבונן ולגלות משהו חדש. בשיעור הזה נבנה הבנה שלב אחר שלב, בקצב שנכון לך.</p>
+                <div class="actions">
+                    <a class="primary" href="#topics">מתחילים ללמוד <span aria-hidden="true">←</span></a>
+                    <span class="duration">⏱ כ־15 דקות</span>
+                </div>
+            </div>
+            <div class="illustration" aria-hidden="true">
+                <span class="sun"></span>
+                <div class="notebook">
+                    <span class="notebook-label">הערה לעצמי</span>
+                    <h2>סקרנות היא כוח.</h2>
+                    <div class="scribble"></div>
+                    <div class="scribble short"></div>
+                    <div class="scribble"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="topics" aria-labelledby="topics-title">
+            <div class="section-heading">
+                <h2 id="topics-title">מה מחכה לנו היום?</h2>
+                <p>שלושה צעדים פשוטים בדרך להבנה.</p>
+            </div>
+            <div class="cards">
+                <article class="card"><div class="card-number">01</div><h3>מתחברים לידע</h3><p>ניזכר במה שכבר למדנו ונמצא את החיבור לנושא החדש.</p></article>
+                <article class="card"><div class="card-number">02</div><h3>מגלים את הרעיון</h3><p>נפרק את הנושא לחלקים ברורים ונבין איך הם עובדים יחד.</p></article>
+                <article class="card"><div class="card-number">03</div><h3>מתרגלים בעצמנו</h3><p>ניישם את הידע במשימה קצרה שתעזור לו להישאר איתנו.</p></article>
+            </div>
+        </section>
+
+        <section class="greeting" aria-labelledby="greeting-title">
+            <h2 id="greeting-title">שנה טובה לדינה קדוש ולתמר רוזנפלד</h2>
+            <p>דינה ותמר היקרות,</p>
+            <p>מאחלת לכן שנה חדשה מלאה בשמחה, בריאות, הצלחות ורגעים יפים. שתהיה זו שנה של התחלות טובות, הגשמת חלומות, סקרנות וגילויים מרגשים.</p>
+            <p>שתמיד תמשיכו לצעוד קדימה באמונה, באור ובחיוך, ותמצאו בכל יום סיבה קטנה לשמוח.</p>
+            <p class="signature">באהבה ובאיחולים חמים לשנה נפלאה!</p>
+        </section>
+    </main>
+</body>
+</html>
